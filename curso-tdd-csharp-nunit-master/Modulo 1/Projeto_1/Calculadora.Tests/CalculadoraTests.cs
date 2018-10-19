@@ -15,7 +15,6 @@ namespace Calculadora.Tests
             var resultado = sut.Adicionar(5, 5);
 
             Assert.That(resultado, Is.EqualTo(15));
-			kk
         }
 
         /* Teste Classe Multiplicar 2 Números */
