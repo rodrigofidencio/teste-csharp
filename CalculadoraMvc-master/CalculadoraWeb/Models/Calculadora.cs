@@ -88,7 +88,7 @@ namespace CalculadoraWeb.Models
 		{
 			int total = 0;
 
-			total = (a % b) /100;
+			total = a * b /100;
 
 			return total;
 
