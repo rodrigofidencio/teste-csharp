@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Extrato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title"><em></em></h2>
+    </div>
+    <div class="row">
+        <div class="panel-content">
+            <h3 class="heading"><i class="fa fa-square"></i> Filtrar Extrato</h3>
+            <div class="panel-content">
+                <div class="form-box">
+                    <form name="form" class="">
+                        <div class="form-group col-md-3">
+                            <div>
+                                <select class="form-control">
+                                    <option value="0">Selecione um projeto</option>
+                                    <option value="Projeto A">Projeto A</option>
+                                    <option value="Projeto B">Projeto B</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <div class="input-group date" data-date-autoclose="true" data-provide="datepicker">
+                                <input type="text" class="form-control">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <div class="input-group date" data-date-autoclose="true" data-provide="datepicker">
+                                <input type="text" class="form-control">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <button class="btn btn-primary">Filtrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_GridExtrato")
+
+<!-- MODAL -->
+<div id="modal-reprova" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel-content">
+                    <div class="form-box">
+                        @Html.Partial("_MotivoReprova")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL -->
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            //EXIBE A MENSAGE DO TOASTR NA TELA
+            $('.mensage').on('click', function () {
+                $context = $(this).data('context');
+                $message = $(this).data('message');
+                $position = $(this).data('position');
+
+                if ($context === '') {
+                    $context = 'info';
+                }
+
+                if ($position === '') {
+                    $positionClass = 'toast-bottom-right';
+                } else {
+                    $positionClass = 'toast-' + $position;
+                }
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $positionClass
+                });
+            });
+        });
+    </script>
+}

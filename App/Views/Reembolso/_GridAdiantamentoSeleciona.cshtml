@@ -1,0 +1,46 @@
+﻿@model fundagMVC.Classes.UsuarioReembolso
+
+<div class="panel-content" id="SelecionaAdiantamento">
+    <div class="alert alert-warning alert-dismissible">
+        <i class="fa fa-warning"></i>
+        Você possui adiantamentos pendentes é necessario vincular para continuar
+    </div>
+    <div class="panel-content">
+        <a href="#" class="btn btn-primary pull-right btnContinuar">
+            <i class="lnr lnr-arrow-right-circle"></i>Continuar Lançamento
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Projeto</th>
+                <th>Data</th>
+                <th>Moeda</th>
+                <th>Valor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var solicitacao in Model.Solicitacaos)
+            {
+                <tr>
+                    <td>@solicitacao.Codigo</td>
+                    <td>
+                        <a href="@Url.Action("ProjetoDetalhe", "Projeto")">
+                            @solicitacao.ProjetoDescricao
+                        </a>
+                    </td>
+                    <td>@solicitacao.Data</td>
+                    <td>@solicitacao.DescricaoMoeda</td>
+                    <td>R$ @solicitacao.ValorTotal</td>
+                    <td>
+                        <input type="checkbox" id="checkReembolso" value="@solicitacao.SolicitacaoID">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

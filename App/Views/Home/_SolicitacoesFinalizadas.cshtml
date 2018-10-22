@@ -1,0 +1,52 @@
+﻿@model fundagMVC.Classes.Usuario
+
+<div class="panel-content">
+    <h3 class="heading">
+        <i class="fa fa-square"></i>
+        Últimas Solicitações
+    </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Situação</th>
+                <th>Tipo</th>
+                <th>Projeto</th>
+                <th>Código</th>
+                <th>Nome</th>
+                <th class="text-center">Criticidade</th>
+                <th>Valor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var solicitacao in Model.SolicitacoesFinalizadas)
+            {
+                <tr>
+                    <td>
+                        <h4>
+                            <label class="label label-success">@solicitacao.TipoSolicitacaoDescricao</label>
+                        </h4>
+                    </td>
+                    <td>@solicitacao.TipoSolicitacaoDescricao</td>
+                    <td>
+                        <a href="@Url.Action("ProjetoDetalhe", "Projeto", new { id= solicitacao.Codigo})">
+                            @solicitacao.ProjetoDescricao
+                        </a>
+                    </td>
+                    <td>@solicitacao.Codigo</td>
+                    <td>@solicitacao.DescricaoSolicitante/td>
+                    <td class="text-center">
+                        <i class="lnr lnr-warning warning"></i>
+                    </td>
+                    <td>R$ @solicitacao.ValorTotal</td>
+                    <td>
+                        <a href="@Url.Action("ReembolsoLancamento", "Reembolso", new { id= solicitacao.Codigo})" class="btn btn-default dropdown-toggle">
+                            <i class="lnr lnr-eye"></i> Visualizar
+                        </a>
+                    </td>
+                </tr>             
+            }
+            </tbody>
+    </table>
+</div>
+

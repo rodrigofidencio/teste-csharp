@@ -1,0 +1,77 @@
+﻿@using X.PagedList.Mvc;
+@model X.PagedList.PagedList<fundagMVC.Classes.Solicitacao>
+
+<div class="panel-content">
+    <h3 class="heading">
+        <i class="fa fa-square"></i>
+        Lista de Solicitações @ViewBag.Title
+    </h3>
+    <div class="panel-content">
+        <a href="@Url.Action(ViewBag.Rota,  ViewBag.ContCadastro)" class="btn btn-primary pull-right">
+            <i class="fa fa-plus-square"></i>Novo @ViewBag.Title
+        </a>
+    </div>
+    <div class="panel-content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Codigo</th>
+                    <th>Projeto</th>
+                    <th>Nome</th>
+                    <th class="text-center">Criticidade</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var solicitacao in Model)
+                {
+                    <tr>
+                        <td>@solicitacao.TipoSolicitacaoDescricao</td>
+                        <td>@solicitacao.Codigo</td>
+                        <td>
+                            <a href="@Url.Action("ProjetoDetalhe", "Projeto")">
+                                @solicitacao.ProjetoDescricao
+                            </a>
+                        </td>
+                        <td>@solicitacao.DescricaoSolicitante</td>
+                        <td class="text-center">
+                            <i class="lnr lnr-warning warning"></i>
+                        </td>
+                        <td>@solicitacao.Data</td>
+                        <td>R$ @solicitacao.ValorTotal</td>
+                        <td>
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Ação
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="@Url.Action("CadastroAdiantamento", "Adiantamento")">
+                                            <i class="lnr lnr-pencil"></i> Continuar
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-toggle="modal" data-target="#modal-adiantamento" class="visualizar">
+                                            <i class="lnr lnr-eye"></i> Visualizar
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <div id='Paging' style="text-align: center">
+            Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            de @Model.PageCount
+
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { pagina = Model.PageNumber + 1 }))
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+﻿@using X.PagedList.Mvc;
+@model X.PagedList.PagedList<fundagMVC.Classes.Projeto>
+
+<div class="col-md-12">
+    <div class="panel-content">
+        <h3 class="heading">
+            <i class="fa fa-square"></i>
+            Lista de Projetos
+        </h3>
+        <div class="panel-content">
+            <a href="@Url.Action("CadastroProjeto","Projeto")" class="btn btn-primary pull-right">
+                <i class="fa fa-plus-square"></i> Novo Projeto
+            </a>
+        </div>
+
+        <div class="panel-content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <th>Código Acompanhamento</th>
+                        <th>Código Integração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var projeto in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="btn-group dropup">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        Ação
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#" data-toggle="modal" data-target="#modal-projeto" class="editar">
+                                                <i class="lnr lnr-pencil"></i> Editar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("ProjetoDetalhe", "Projeto", new { @id= projeto.Codigo})">
+                                                <i class="lnr lnr-eye"></i> Visualizar
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-toggle="modal" data-target="#modal-reprova">
+                                                <i class="lnr lnr-sun"></i> Reprovar
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>@projeto.Codigo</td>
+                            <td>@projeto.Descricao</td>
+                            <td>@projeto.CodAcompanhamento</td>
+                            <td>@projeto.IntegracaoCodigo</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            <div id='Paging' style="text-align: center">
+                Pagina @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+               de @Model.PageCount
+
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { pagina = Model.PageNumber + 1 }))
+            </div>
+        </div>
+    </div>
+</div>

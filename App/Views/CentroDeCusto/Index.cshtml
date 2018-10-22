@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Centro de Custo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-content">
+    <h3 class="heading">
+        <i class="fa fa-square"></i>
+        Centro de Custo
+    </h3>
+
+    <div class="panel-content">
+        <a href="@Url.Action("CadastroCentroDeCusto","CentroDeCusto")" class="btn btn-primary pull-right">
+            <i class="fa fa-plus-square"></i>Novo Centro de Custo
+        </a>
+    </div>
+
+    <div class="panel-content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Unidade Contratante</th>
+                    <th>Cód Projeto</th>
+                    <th>Projeto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0001</td>
+                    <td>Unidade A</td>
+                    <td>AB-0001</td>
+                    <td>Projeto A</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

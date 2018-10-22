@@ -1,0 +1,87 @@
+﻿
+<div class="dashboard-section">
+    <div class="row">
+        <div class="panel-content">
+            <h3 class="heading"><i class="fa fa-square"></i> Realizar Lançamento</h3>
+            <div class="form-box">
+                <form name="form" class="">
+                    <div class="row">
+                        <div class="panel-content">
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Tipo</label>
+                                        <select class="form-control" tabindex="1">
+                                            <option value="0">Selecione um projeto</option>
+                                            <option value="Custeio">Custeio</option>
+                                            <option value="Diaria">Diaria</option>
+                                            <option value="Viagem">Viagem</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Data</label>
+                                        <div class="input-group date" data-date-autoclose="true" data-provide="datepicker">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Atividade</label>
+                                        <div>
+                                            <select class="form-control" tabindex="3">
+                                                <option value="0">Selecione um projeto</option>
+                                                <option value="Atividade A">Atividade A</option>
+                                                <option value="Atividade B">Atividade B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="panel-content">
+                            <div class="form-group ">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Valor</label>
+                                        <input class="form-control" name="valor" type="text" value="" tabindex="4">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Pessoas</label>
+                                        <input class="form-control" name="nPessoas" type="text" value="" tabindex="5">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Diarias</label>
+                                        <input class="form-control" name="nDiárias" type="text" value="" tabindex="6">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel-content">
+                            <div class="form-group ">
+                                <label>Locais</label>
+                                <textarea class="form-control col-sm-9" name="nDiárias" tabindex="7"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    @Html.Partial("_GridAnexo")
+    <div class="row">
+        <div class="panel-content">
+            <div class="form-group">
+                <button type="button" class="btn btn-default">Cancelar</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary">Adicionar</button>&nbsp;&nbsp;
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

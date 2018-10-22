@@ -1,0 +1,125 @@
+﻿<form name="form" class="">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel-content">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Cód. Projeto</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-9">
+                            <label>Projeto</label>
+                            @* System.ArgumentNullException: 'Valor não pode ser nulo.
+                                Arg_ParamName_Name'
+
+                                @Html.DropDownList("Id", new SelectList(ViewBag.Projetos, "ProjetoID", "Descricao"),
+                               "Selecione um Projeto", new { @class = "form-control", @id = "ProjetoAdiantamento" })*@
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Solicitante</label>
+                            @Html.DropDownList("ColaboradorID", new SelectList(ViewBag.Solicitate, "ColaboradorID", "Nome"),
+                                 "Selecione um Solicitante", new { @class= "form-control CarregarBanco", @id= "SolicitanteAdiantamento" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label>Atividade</label>
+                            <div>
+                                <select class="form-control ">
+                                    <option value="0">Selecione </option>
+                                    <option value="Combustivel">Combustivel</option>
+                                    <option value="Diárias">Diárias</option>
+                                    <option value="Custeio">Custeio</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Data Previsão</label>
+                            <div class="input-group date" data-date-autoclose="true" data-provide="datepicker">
+                                <input type="text" class="form-control">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Finalidade</label>
+                    <textarea class="form-control" name="finalizadade" rows="11"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel-content">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label>Banco</label>
+                            @Html.DropDownList("Id", new SelectList(ViewBag.Banco, "Id", "Descricao"),
+                                                    "Selecione um Banco", new { @class="form-control" , @id= "BancoFavorecido" })
+                        </div>
+                        <div class="col-md-4">
+                            <label>Agência</label>
+                            <input class="form-control " name="agencia" type="text" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Conta</label>
+                            <input class="form-control " name="conta" type="text" value="">
+                        </div>
+                        <div class="col-md-2">
+                            <label>Digíto</label>
+                            <input class="form-control " name="digito" type="text" value="">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label>Favorecido</label>
+                    <input class="form-control " name="favorecido" type="text" value="">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>CPF</label>
+                            <input class="form-control cpf" name="cpf" type="text" value="">
+                        </div>
+                        <div class="col-md-6">
+                            <label>RG</label>
+                            <input class="form-control " name="rg" type="text" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Observação</label>
+                    <textarea class="form-control" rows="6" name="obsBanco"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row btn-status">
+        <div class="col-md-6">
+            <div class="panel-content">
+                <div class="form-group">
+                    <a href="#" data-message="Adiantamento salvo" data-position="bottom-full-width" data-context="success" class="btn btn-success mensage">
+                        <i class="fa fa-check-circle"></i>
+                        Salvar
+                    </a>&nbsp;&nbsp;
+                    <a href="@Url.Action("Index")" class="btn btn-default">Cancelar</a>&nbsp;&nbsp;
+                    <a href="#" data-message="Adiantamento enviado para aprovação" data-position="bottom-full-width" data-context="info" class="btn btn-primary mensage">Enviar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

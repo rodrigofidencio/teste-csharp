@@ -1,0 +1,112 @@
+﻿<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title"><em></em></h2>
+    </div>
+    <div class="row">
+        <div class="panel-content">
+            <h3 class="heading">
+                <i class="fa fa-square"></i> Detalhes de Projetos
+            </h3>
+            <div class="form-box">
+                <form name="form" class="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label>Código</label>
+                                            <input class="form-control disabled" name="codigo" type="text" value="">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <label>Titulo</label>
+                                            <input class="form-control disabled" name="titulo" type="text" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <label>Unidade Contratante</label>
+                                    <div>
+                                        <select class="form-control disabled">
+                                            <option value="0">Selecione uma unidade contratante</option>
+                                            <option value="Teste A">Teste A</option>
+                                            <option value="Teste B">Teste B</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Unidade Realizadora</label>
+                                    <div>
+                                        <select class="form-control disabled">
+                                            <option value="0">Selecione uma unidade realizadora</option>
+                                            <option value="Teste A">Teste A</option>
+                                            <option value="Teste B">Teste B</option>
+                                        </select>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <label>Unidade Operacional</label>
+                                    <div>
+                                        <select class="form-control disabled">
+                                            <option value="0">Selecione uma unidade operacional</option>
+                                            <option value="Teste A">Teste A</option>
+                                            <option value="Teste B">Teste B</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Cordenador</label>
+                                    <div>
+                                        <select class="form-control disabled">
+                                            <option value="0">Selecione um coordenador</option>
+                                            <option value="Teste A">Teste A</option>
+                                            <option value="Teste B">Teste B</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dashboard-section">
+    <div class="panel-content">
+        <h3 class="heading"><i class="fa fa-square"></i> Plano de Trabalho</h3>
+        <div>
+            <div class="form-box">
+                <form name="form" class="">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <div>
+                                        <select class="form-control right">
+                                            <option value="0">Selecione um periodo</option>
+                                            <option value="Mensal">Mensal</option>
+                                            <option value="Semanal">Semanal</option>
+                                            <option value="Bimestral">Bimestral</option>
+                                            <option value="Anual ">Anual </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            @Html.Partial("_GridProjetoDetalhe")
+        </div>
+    </div>
+</div>
+

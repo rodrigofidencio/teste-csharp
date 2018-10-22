@@ -1,0 +1,24 @@
+﻿ @{
+    ViewBag.Title = "Cadastro de Diária";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title"><em></em> </h2>
+    </div>
+    <div class="row">
+        <div class="panel-content">
+            <h3 class="heading"><i class="fa fa-square"></i> Cadastro de KM</h3>
+            @Html.Partial("_FormDiaria")
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.cpf').mask('999.999.999-99');
+        });
+    </script>
+}

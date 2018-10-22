@@ -1,0 +1,64 @@
+﻿<div class="panel-content">
+    <h3 class="heading">
+        <i class="fa fa-square"></i>
+        Lançamentos
+    </h3>
+    <div class="pull-right">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-lancamento">
+            <i class="fa fa-plus-square"></i> Adicionar Lançamento
+        </button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Comentario</th>
+                <th>Descrição</th>
+                <th class="text-center" >Politica</th>                
+                <th>Valor</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01/11/2018</td>
+                <td>almoço</td>
+                <td>almoço c/ cliente</td>
+                <td>2 pessoas</td>
+                <td class="text-center">
+                    <i class="lnr lnr-warning warning"></i>
+                </td>              
+                <td>R$ 50,00</td>
+                <td>
+                    <div class="btn-group dropup">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Ação
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#modal-lancamento">
+                                    <i class="lnr lnr-pencil"></i> Editar
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" data-message="Lançamento excluido" data-position="bottom-full-width" data-context="error" class="mensage">
+                                    <i class="lnr lnr-sun"></i> Excluir
+                                </a>
+                            </li>
+                            <li><a><i class="lnr lnr-trash"></i> Rateio</a></li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#modal-anexo">
+                                    <i class="fa fa-upload"></i> Anexo
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+

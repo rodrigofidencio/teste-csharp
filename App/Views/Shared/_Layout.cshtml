@@ -1,0 +1,289 @@
+﻿    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FUNDAG | Admin</title>
+        <link rel="icon" type="image/png" sizes="96x96" href="~/Imagens/favicon.png">
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+
+        @Styles.Render("~/Content/css")
+  
+    </head>
+    <body onload="CarregarLoader()">
+        <!-- WRAPPER -->
+        <div id="wrapper">
+            <!-- NAVBAR -->
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-btn">
+                        <button type="button" class="btn-toggle-offcanvas">
+                            <i class="lnr lnr-menu"></i>
+                        </button>
+                    </div>
+                    <!-- logo -->
+                    <div class="navbar-brand">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="~/Imagens/logo.png" alt="FUNDAG" class="img-responsive logo">
+                        </a>
+                    </div>
+                    <!-- end logo -->
+                    <div class="navbar-right">
+                        <!-- search form -->
+                        <form id="navbar-search" class="navbar-form search-form">
+                            <input value="" class="form-control" placeholder="Pesquisar..." type="text">
+                            <button type="button" class="btn btn-default">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                        <!-- end search form -->
+                        <!-- navbar menu -->
+                        <div id="navbar-menu">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                                        <i class="lnr lnr-alarm"></i>
+                                        <span class="notification-dot"></span>
+                                    </a>
+                                    <ul class="dropdown-menu notifications">
+                                        <li class="header"><strong>Você tem 7 novas notificações</strong></li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <i class="fa fa-fw fa-flag-checkered text-muted"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="text">Os últimos projetos ficaram todos dentro da política de margem esperada. Parabéns!</p>
+                                                        <span class="timestamp">24 minutos atrás</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <i class="fa fa-fw fa-exclamation-triangle text-warning"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="text">Seu budget do projeto <strong>Fazenda São Miguel</strong> atingiu 70%. Favor verificar.</p>
+                                                        <span class="timestamp">2 horas atrás</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <i class="fa fa-fw fa-bar-chart text-muted"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="text">Suas despesas estão 27% maiores que semana passada.</p>
+                                                        <span class="timestamp">Ontem</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <i class="fa fa-fw fa-check-circle text-success"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="text">Seu orçamento <strong>Visita Feira BH</strong> foi aprovado. Parabéns!</p>
+                                                        <span class="timestamp">2 dias atrás</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <i class="fa fa-fw fa-exclamation-circle text-danger"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        Seu relatório <strong>Visita Sertãozinho</strong> foi reprovado por estar fora da política. Favor revisar.</p>
+                                                        <span class="timestamp">3 dias atrás</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="footer"><a href="#" class="more">Veja todas as notificações</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                                        <i class="lnr lnr-cog"></i>
+                                    </a>
+                                    <ul class="dropdown-menu user-menu menu-icon">
+                                        <li class="menu-heading">CONFIGURAÇÕES</li>
+                                        <li><a href="#"><i class="fa fa-fw fa-edit"></i> <span>Básicas</span></a></li>
+                                        <li><a href="#"><i class="fa fa-fw fa-bell"></i> <span>Notificações</span></a></li>
+                                        <li><a href="#"><i class="fa fa-fw fa-sliders"></i> <span>Preferências</span></a></li>
+                                        <li><a href="#"><i class="fa fa-fw fa-lock"></i> <span>Privacidade</span></a></li>
+                                        <li class="menu-heading">COBRANÇA</li>
+                                        <li><a href="#"><i class="fa fa-fw fa-file-text-o"></i> <span>Faturas</span></a></li>
+                                        <li><a href="#"><i class="fa fa-fw fa-credit-card"></i> <span>Pagamentos</span></a></li>
+                                        <li><a href="#"><i class="fa fa-fw fa-refresh"></i> <span>Renovações</span></a></li>
+                                        <li class="menu-button">
+                                            <a href="#" class="btn btn-primary"><i class="fa fa-rocket"></i> UPGRADE </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                                        <i class="lnr lnr-question-circle"></i>
+                                    </a>
+                                    <ul class="dropdown-menu user-menu">
+                                        <li>
+                                            <form class="search-form help-search-form">
+                                                <input value="" class="form-control" placeholder="Como posso ajudar?" type="text">
+                                                <button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                            </form>
+                                        </li>
+                                        <li class="menu-heading">COMO</li>
+                                        <li><a href="#">Cadastrar um Projeto</a></li>
+                                        <li><a href="#">Cadastrar um C.Custo</a></li>
+                                        <li><a href="#">Cadastrar uma C.Contábil</a></li>
+                                        <li><a href="#">Cadastrar um Orçamento </a></li>
+                                        <li class="menu-heading">CONTA</li>
+                                        <li><a href="page-profile.html">Alterar Senha</a></li>
+                                        <li><a href="#">Preferências</a></li>
+                                        <li class="menu-button">
+                                            <a href="#" class="btn btn-primary"><i class="fa fa-question-circle"></i> HELP CENTER</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end navbar menu -->
+                    </div>
+                </div>
+            </nav>
+            <!-- END NAVBAR -->
+            <!-- LEFT SIDEBAR -->
+            <div id="left-sidebar" class="sidebar">
+                <button type="button" class="btn btn-xs btn-link btn-toggle-fullwidth">
+                    <span class="sr-only">Toggle Fullwidth</span>
+                    <i class="fa fa-angle-left"></i>
+                </button>
+                <div class="sidebar-scroll">
+                    <div class="user-account">
+                        <img src="~/Imagens/user.png" class="img-responsive img-circle user-photo" alt="User Profile Picture">
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown">Olá, <strong>FUNDAG</strong> <em class="fa fa-caret-down"></em></a>
+                            <ul class="dropdown-menu dropdown-menu-right account">
+                                <li><a href="#"><strong>Empresa: </strong>Matriz</a></li>
+                                <li class="divider"></li>
+                                <li><a href="page-profile.html"><strong>Perfil: </strong>Administrador</a></li>
+                                <li><a href="#"><strong>C.Custo: </strong>Adm 1005976</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Informações do Sistema</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <nav id="left-sidebar-nav" class="sidebar-nav">
+                        <ul id="main-menu" class="metismenu">
+                            <li class="active">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="lnr lnr-home"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Solicitacoes")" class="has-arrow">
+                                    <i class="lnr lnr-pencil"></i>
+                                    <span>
+                                        <strong>Solicitações</strong>
+                                    </span>
+                                </a>
+                                <ul aria-expanded="true">
+                                    <li>
+                                        <a href="@Url.Action("Index", "Solicitacoes")">Exibir Solicitações</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "Adiantamento")">Adiantamento</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "Diaria")">Diária</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "Quilometragem")">Quilometragem</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "reembolso")">Reembolso</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "OrdemDePagamento")">Ordem de Pagamento</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="@Url.Action("Index", "Projeto")">
+                                    <i class="lnr lnr-location"></i>
+                                    <span>Projeto</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Extrato")">
+                                    <i class="lnr lnr-briefcase"></i>
+                                    <span>Extrato</span>
+                                </a>
+                            </li>
+                            @*<li>
+                            <a href="#" class="has-arrow" aria-expanded="false">
+                                <i class="lnr lnr-book"></i>
+                                <span>Cadastros Básicos</span>
+                            </a>
+                            <ul aria-expanded="true">
+                                <li>
+                                  <a href="@Url.Action("Index","Funcionario")">Funcionario</a>
+                                </li>
+                                <li>
+                                <a href="@Url.Action("Index","CentroDeCusto")">Centro de Custo</a>
+                                </li>
+                                <li><a href="@Url.Action("Index","ContaContabil")">Conta Contabil </a></li>
+                            </ul>
+                        </li>*@
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- END LEFT SIDEBAR -->
+            <!-- MAIN CONTENT -->
+            <div id="main-content">
+                <div class="container-fluid">                   
+                    @RenderBody()
+                </div>
+            </div>
+
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Fundag</p>
+            </footer>
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/jquery-ui")
+            @Scripts.Render("~/bundles/bootstrap")
+            @Scripts.Render("~/bundles/metisMenu")
+            @Scripts.Render("~/bundles/jqueryslimscroll")
+            @Scripts.Render("~/bundles/jquerysparkline")
+            @Scripts.Render("~/bundles/multiselect")
+            @Scripts.Render("~/bundles/toastr")
+            @Scripts.Render("~/bundles/bootstrap-datepicker")
+            @Scripts.Render("~/bundles/jquerymaskedinput")
+            @Scripts.Render("~/bundles/common")
+            @Scripts.Render("~/bundles/core")
+            @Scripts.Render("~/bundles/select2")
+            @RenderSection("scripts", required: false)
+
+</body>
+</html>
+

@@ -1,0 +1,84 @@
+﻿<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title"></h2>
+    </div>
+    <div class="row">
+        <div class="panel-content">
+            <h3 class="heading"><i class="fa fa-square"></i> Cadastro da Conta Contabíl</h3>
+            <div class="form-box">
+                <form name="form" class="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <label>Projeto</label>
+                                    <input class="form-control" name="Projeto" type="text" value="" tabindex="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Unidade Contratante</label>
+                                    <div>
+                                        <select class="form-control" tabindex="3">
+                                            <option value="0">Selecione uma unidade contratante</option>
+                                            <option value="Unidade 1">Unidade 1</option>
+                                            <option value="Unidade 2">Unidade 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <label>Código Projeto</label>
+                                    <input class="form-control" name="Titulo" type="text" value="" tabindex="2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <button type="button" data-message="Conta contabil criada" data-dismiss="modal" data-position="bottom-full-width" data-context="success" class="btn btn-success mensage">
+                                        <i class="fa fa-check-circle"></i>
+                                        <span>Salvar</span>
+                                    </button>
+                                    <a href="@Url.Action("Index","ContaContabil")" class="btn btn-default">Cancelar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    $(document).ready(function () {
+
+        //EXIBE A MENSAGE DO TOASTR NA TELA
+        $('.mensage').on('click', function () {
+            $context = $(this).data('context');
+            $message = $(this).data('message');
+            $position = $(this).data('position');
+
+            if ($context === '') {
+                $context = 'info';
+            }
+
+            if ($position === '') {
+                $positionClass = 'toast-bottom-right';
+            } else {
+                $positionClass = 'toast-' + $position;
+            }
+
+            toastr.remove();
+            toastr[$context]($message, '', {
+                positionClass: $positionClass
+            });
+        });
+    });
+    </script>
+}

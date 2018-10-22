@@ -1,0 +1,382 @@
+﻿@using X.PagedList.Mvc;
+@model X.PagedList.PagedList<fundagMVC.Classes.Solicitacao>
+
+@{
+    ViewBag.Title = "Solicitações";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="loader"></div>
+<div class="dashboard-section animate-bottom" id="carregarConteudo">
+
+    <div class="section-heading clearfix">
+        <h2 class="section-title"><em></em></h2>
+    </div>
+
+    <div class="row">
+        <div class="panel-content">
+            <h3 class="heading">
+                <i class="fa fa-square"></i>Filtrar Solicitações
+            </h3>
+            <div class="form-box">
+                <form name="form" class="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel-content">
+
+                                <div class="row">
+                                    <div class=" col-md-3">
+                                        <div class="form-group">
+                                            <label>Data Inicio</label>
+                                            <div class="input-group date col-md-12" data-date-autoclose="true" data-provide="datepicker">
+                                                <input type="text" id="dtInicio" class="form-control">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-3">
+                                        <div class="form-group">
+                                            <label>Data Fim</label>
+                                            <div class="input-group date col-md-12" data-date-autoclose="true" data-provide="datepicker">
+                                                <input type="text" id="dtFim" class="form-control">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" col-md-6">
+                                        <div class="form-group">
+                                            <label>Solicitante</label>
+                                            @Html.DropDownList("ColaboradorID", new SelectList(ViewBag.Solicitante, "ColaboradorID", "Nome"),
+                                            new
+                                            {
+                                                @class = "multiselect multiselect-custom",
+                                                @id = "multiSelectSolicitante",
+                                                @multiple = ""
+                                            })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <label>Tipo</label>
+                                        <div>
+                                            @Html.DropDownList("Id", new SelectList(ViewBag.Tipo, "Id", "Descricao"),
+                                             new
+                                             {
+                                                 @class = "multiselect multiselect-custom",
+                                                 @id = "multiSelectTipo",
+                                                 @multiple = ""
+                                             })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Projeto</label>
+                                        @Html.DropDownList("ProjetoID", new SelectList(ViewBag.Projeto, "ProjetoID", "Descricao"),
+                                         new
+                                         {
+                                             @class = "multiselect multiselect-custom",
+                                             @id = "multiSelectProjeto",
+                                             @multiple = ""
+                                         })
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label>Situação</label>
+                                        @Html.DropDownList("Id", new SelectList(ViewBag.Situacao, "Id", "Descricao"),
+                                           new {
+                                               @class = "multiselect multiselect-custom",
+                                               @id = "multiSelectSituacao",
+                                               @multiple=""
+                                           })
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Unidade Contratante</label>
+                                        @*<select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
+                                            </select>*@
+                                        @Html.DropDownList("Codigo", new SelectList(ViewBag.UnidadeContratante, "Codigo", "Nome"),
+                                           new   {
+                                               @class = "multiselect multiselect-custom",
+                                               @id = "multiSelectContratante",
+                                               @multiple = ""
+                                           })
+                                    </div>
+                                    <div class="form-group  col-md-6">
+                                        <label>Unidade Solicitadora</label>
+                                        @Html.DropDownList("Codigo", new SelectList(ViewBag.UnidadeSolicitadora, "Codigo", "Nome"),
+                                            new
+                                            {
+                                                @class = "multiselect multiselect-custom",
+                                                @id = "multiSelectSolicitadora",
+                                                @multiple = ""
+                                            })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group  col-md-4">
+                                        <label>Unidade Realizadora</label>
+                                        @Html.DropDownList("Codigo", new SelectList(ViewBag.UnidadeRealizadora, "Codigo", "Nome"),
+                                            new   {
+                                                @class = "multiselect multiselect-custom",
+                                                @id = "multiSelectRealizadora",
+                                                @multiple = ""
+                                            })
+                                    </div>
+                                    <div class=" form-group col-md-4">
+                                        <label>Cordenador</label>
+                                        @Html.DropDownList("Codigo", new SelectList(ViewBag.Coordenador, "Codigo", "Nome"),
+                                           new{
+                                               @class = "multiselect multiselect-custom",
+                                               @id = "multiSelectCoordenador",
+                                               @multiple = ""
+                                           })
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>Pesquisador</label>
+                                        @Html.DropDownList("Codigo", new SelectList(ViewBag.Pesquisador, "Codigo", "Nome") ,
+                                             new {
+                                                 @class = "multiselect multiselect-custom",
+                                                 @id = "multiSelectPesquisador",
+                                                 @multiple=""
+                                             })
+
+                                        <p id="error-multiselect"></p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 pull-right">
+                        <butto class="btn btn-primary pull-right btn-filtrar">Filtrar</butto>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="grid">
+        @Html.Partial("_FiltrarSolicitacao", Model)
+    </div>
+    <div id="GridSolicitacoes"></div>
+</div>
+
+
+<!-- MODAL -->
+<div id="modal-reprova" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel-content">
+                    <div class="form-box">
+                        @Html.Partial("_MotivoReprova")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL -->
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            //Montar objetos para passar via ajax
+            var Solicitante = [];
+            var Projeto = [];
+            var TipoSolicitacao = [];
+            var Situacao = [];
+            var UnidadeContratante = [];
+            var unidadeSolicitadora = [];
+            var UnidadeRealizadora = [];
+            var Coordenador = [];
+            var Pesquisador = [];
+
+            // OPÇÃO DE MULTI SELECT
+            $('#multiSelectSolicitante').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '100%',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                onChange: function (element, checked) {
+                    var brands = $('#multiSelectSolicitante option:selected');
+                    $(brands).each(function (index, brand) {
+                        Solicitante.push($(this).val());
+                    });
+                }
+            });
+
+            $('#multiSelectProjeto').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '100%',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                onChange: function (element, checked) {
+                    var brands = $('#multiSelectProjeto option:selected');
+                    $(brands).each(function (index, brand) {
+                        Projeto.push($(this).val());
+                    });
+                }
+            });
+
+            $('#multiSelectSituacao').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '100%',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                onChange: function (element, checked) {
+                    var brands = $('#multiSelectSituacao option:selected');
+                    $(brands).each(function (index, brand) {
+                        Situacao.push($(this).val());
+                    });
+                }
+            });
+
+            $('#multiSelectContratante').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '100%',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                onChange: function (element, checked) {
+                    var brands = $('#multiSelectContratante option:selected');
+                    $(brands).each(function (index, brand) {
+                        UnidadeContratante.push($(this).val());
+                    });
+                }
+            });
+
+            $('#multiSelectSolicitadora').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '100%',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                onChange: function (element, checked) {
+                    var brands = $('#multiSelectSolicitadora option:selected');
+                    $(brands).each(function (index, brand) {
+                        unidadeSolicitadora.push($(this).val());
+                    });
+                }
+            });
+
+            $('#multiSelectTipo').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '100%',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                onChange: function (element, checked) {
+                    var brands = $('#multiSelectTipo option:selected');
+                    $(brands).each(function (index, brand) {
+                        TipoSolicitacao.push($(this).val());
+                    });
+                }
+            });
+
+            $('#multiSelectRealizadora').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '100%',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                onChange: function (element, checked) {
+                    var brands = $('#multiSelectRealizadora option:selected');
+                    $(brands).each(function (index, brand) {
+                        UnidadeRealizadora.push($(this).val());
+                    });
+                }
+            });
+
+            $('#multiSelectCoordenador').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '100%',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                onChange: function (element, checked) {
+                    var brands = $('#multiSelectCoordenador option:selected');
+                    $(brands).each(function (index, brand) {
+                        Coordenador.push($(this).val());
+                    });
+                }
+            });
+
+            $('#multiSelectPesquisador').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '100%',
+                enableFiltering: true,
+                enableCaseInsensitiveFiltering: true,
+                onChange: function (element, checked) {
+                    var brands = $('#multiSelectPesquisador option:selected');
+                    $(brands).each(function (index, brand) {
+                        Pesquisador.push($(this).val());
+                    });
+                }
+            });
+
+            //Realizar o filtro passando o obj gerado no multiSelec
+            $(".btn-filtrar").on('click', function () {
+
+                var solicitacao = [{
+                    DataHotaInicio: $("dtInicio").val(),
+                    DataHoraFim: $("dtFim").val(),
+                    Solicitante: Solicitante,
+                    TipoSolicitacao: TipoSolicitacao,
+                    Projeto: Projeto,
+                    Situacao: Situacao,
+                    UnidadeContratante: UnidadeContratante,
+                    UnidadeSolicitadora: unidadeSolicitadora,
+                    UnidadeRealizadora: UnidadeRealizadora,
+                    Coordenador: Coordenador,
+                    Pesquisador: Pesquisador,
+                }];
+
+                //console.log(solicitacao)
+
+                $.ajax({
+                    url: '/Solicitacoes/FiltrarSolicitacao',
+                    type: 'POST',
+                    data: JSON.stringify({ solicitacao: solicitacao }),
+                    dataType: 'html',
+                    contentType: 'application/json',
+                    success: function (response) {
+                        $("#GridSolicitacoes").html(response)
+                        $("#grid").addClass("hidden")
+                    },
+                    error: function (result) {
+                        console.log(result)
+                    }
+                });
+            });
+
+            //EXIBE A MENSAGE DO TOASTR NA TELA
+            $('.mensage').on('click', function () {
+                $context = $(this).data('context');
+                $message = $(this).data('message');
+                $position = $(this).data('position');
+
+                if ($context === '') {
+                    $context = 'info';
+                }
+
+                if ($position === '') {
+                    $positionClass = 'toast-bottom-right';
+                } else {
+                    $positionClass = 'toast-' + $position;
+                }
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $positionClass
+                });
+            });
+
+            $('.cpf').mask('999.999.999-99');
+        });
+    </script>
+}
+
+

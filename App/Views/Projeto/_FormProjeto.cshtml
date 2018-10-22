@@ -1,0 +1,101 @@
+﻿
+<form name="form" class="">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel-content">
+                <div class="form-group">
+                    <label>Projeto</label>
+                    <input class="form-control" name="Projeto" type="text" value="" tabindex="1">
+                </div>
+                <div class="form-group">
+                    <label>Unidade Contratante</label>
+                    <div>
+                        <select class="form-control" tabindex="3">
+                            <option value="0">Selecione uma unidade contratante</option>
+                            <option value="Teste A">Teste A</option>
+                            <option value="Teste B">Teste B</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Unidade Realizadora</label>
+                    <div>
+                        <select class="form-control" tabindex="5">
+                            <option value="0">Selecione uma unidade realizadora</option>
+                            <option value="Teste A">Teste A</option>
+                            <option value="Teste B">Teste B</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Unidade Operacional</label>
+                    <div>
+                        <select class="form-control" tabindex="7">
+                            <option value="0">Selecione uma unidade operacional</option>
+                            <option value="Teste A">Teste A</option>
+                            <option value="Teste B">Teste B</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Programa</label>
+                    <input class="form-control" name="programa" type="text" value="" tabindex="9">
+                </div>
+                <div class="form-group">
+                    <label>Titulo</label>
+                    <input class="form-control" name="titulo" type="text" value="" tabindex="10">
+                </div>
+                <div class="form-group">
+                    <label>Objetivos</label>
+                    <input class="form-control" name="objetivo" type="text" value="" tabindex="11">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel-content">
+                <div class="form-group">
+                    <label>Tipo Instituição</label>
+                    <input class="form-control" name="tipoInstituicao" type="text" value="" tabindex="2">
+                </div>
+                <div class="form-group">
+                    <label>Cordenador</label>
+                    <div>
+                        <select class="form-control" tabindex="4">
+                            <option value="0">Selecione um coordenador</option>
+                            <option value="Teste A">Teste A</option>
+                            <option value="Teste B">Teste B</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Pesquisador</label>
+                    <div>
+                        <select class="form-control" tabindex="6">
+                            <option value="0">Selecione um pesquisador</option>
+                            <option value="Teste A">Teste A</option>
+                            <option value="Teste B">Teste B</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Código Projeto</label>
+                    <input class="form-control" name="Titulo" type="text" value="" tabindex="8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row btn-status">
+        <div class="col-md-6">
+            <div class="panel-content">
+                <div class="form-group">
+                    <button type="button" data-message="Projeto salvo" data-dismiss="modal" data-position="bottom-full-width" data-context="success" class="btn btn-success mensage">
+                        <i class="fa fa-check-circle"></i>
+                        <span>Salvar</span>
+                    </button>
+
+                    <a href="@Url.Action("Index")" class="btn btn-default">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

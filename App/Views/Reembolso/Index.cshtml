@@ -1,0 +1,100 @@
+﻿@model fundagMVC.Classes.UsuarioReembolso
+
+@{
+    ViewBag.Title = "Reembolso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title"><em></em></h2>
+        <div class="row">
+            <div class="panel-content">
+                <h3 class="heading">
+                    <i class="fa fa-square"></i>
+                    Lista de Solicitações @ViewBag.Title
+                </h3>
+                <div class="panel-content">
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(m => m.Colaborador, new SelectList(Model.Colaborador.Select(x => new{ x.ColaboradorID, x.Nome }), "ColaboradorID", "Nome",0),
+                              " Selecione um Colaborador ", new { @class= "form-control selecColaborador"})
+
+                    </div>
+                    <a href="@Url.Action(ViewBag.Rota,  ViewBag.ContCadastro)" class="btn btn-primary pull-right">
+                        <i class="fa fa-plus-square"></i>Novo @ViewBag.Title
+                    </a>
+
+                </div>
+            </div>
+            <div class="panel-content">
+                <div id="grid">
+                    @{Html.RenderPartial("_GridSolicitacoesReembolso", Model); }
+                </div>
+                <div id="GridSolicitacoesReembolso"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal-reprova" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="panel-content">
+                    <div class="form-box">
+                        @Html.Partial("~/Views/Shared/_MotivoReprova.cshtml")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL -->
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            //EXIBE A MENSAGE DO TOASTR NA TELA
+            $('.mensage').on('click', function () {
+                $context = $(this).data('context');
+                $message = $(this).data('message');
+                $position = $(this).data('position');
+
+                if ($context === '') {
+                    $context = 'info';
+                }
+
+                if ($position === '') {
+                    $positionClass = 'toast-bottom-right';
+                } else {
+                    $positionClass = 'toast-' + $position;
+                }
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $positionClass
+                });
+            });
+
+            $('.selecColaborador').change(function () {
+                var Colaborador = $(this).val();
+                $.ajax({
+                    url: '/Reembolso/GridSolicitacoesReembolso',
+                    type: 'POST',
+                    data: JSON.stringify({ Colaborador: Colaborador }),
+                    dataType: 'html',
+                    contentType: 'application/json',
+                    success: function (response) {                       
+                        $("#GridSolicitacoesReembolso").html(response)
+                        $("#grid").addClass("hidden")
+                    },
+                    error: function (result) {
+                        console.log(result)
+                    }
+                });
+            })
+
+        });
+    </script>
+}

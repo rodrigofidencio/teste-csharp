@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Lançar KM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title"><em></em></h2>
+    </div>
+    <div class="row">
+        <div class="panel-content">
+            <h3 class="heading"><i class="fa fa-square"></i> Dados da solicitação</h3>
+            <div class="panel-content row">
+                <div class="pull-right">
+                    <button class="btn btn-warning" data-toggle="modal" data-target="#modal-editar">
+                        Editar
+                    </button>&nbsp;&nbsp;
+                    <button class="btn btn-default" data-toggle="modal" data-target="#modal-anexo">
+                        <i class="fa fa-plus-square"></i>Anexo
+                    </button>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#combinedOne" class="collapsed">
+                            <table class="table table-lancamento">
+                                <thead class="table-item">
+                                    <tr>
+                                        <td><strong>Destaque</strong></td>
+                                        <td><strong>Titulo</strong></td>
+                                        <td><strong>Código</strong></td>
+                                        <td><strong>Projeto</strong></td>
+                                        <td>
+                                            <i class="fa fa-angle-down right icon-collapsed"></i>
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </a>
+                    </h4>
+                </div>
+                <div id="combinedOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                    <table class="table">
+                        <tbody class="table-item">
+                            <tr>
+                                <td>Projeto</td>
+                                <td>Projeto modelo teste</td>
+                                <td>AB 9999999</td>
+                                <td>Projeto A</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title"><em></em> </h2>
+    </div>
+    <div class="row">
+        <div class="panel-content">
+            <h3 class="heading"><i class="fa fa-square"></i> Resumo válido</h3>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#combinedTwo" class="collapsed">
+                            <table class="table table-lancamento">
+                                <thead class="table-item">
+                                    <tr>
+                                        <td><strong>Destaque</strong> </td>
+                                        <td><strong>Valor Total</strong></td>
+                                        <td><strong>Valor Adiantado</strong></td>
+                                        <td><strong>Saldo</strong></td>
+                                        <td>
+                                            <i class="fa fa-angle-down right icon-collapsed"></i>
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </a>
+                    </h4>
+                </div>
+                <div id="combinedTwo" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                    <table class="table">
+                        <tbody class="table-item">
+                            <tr>
+                                <td>1011</td>
+                                <td>R$ 800,00</td>
+                                <td>R$ 300,00</td>
+                                <td>R$ 500,00</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>1011</td>
+                                <td>R$ 500,00</td>
+                                <td>R$ 300,00</td>
+                                <td>R$ 200,00</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@Html.Partial("~/Views/Shared/_GridLancamento.cshtml");
+
+<!-- MODAL -->
+<div id="modal-editar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @Html.Partial("_FormQuilometragem")
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-anexo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @Html.Partial("~/Views/Shared/_GridAnexo.cshtml")
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-lancamento" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @Html.Partial("_LancarQuilometragem")
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL -->
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.mensage').on('click', function () {
+                $context = $(this).data('context');
+                $message = $(this).data('message');
+                $position = $(this).data('position');
+
+                if ($context === '') {
+                    $context = 'info';
+                }
+
+                if ($position === '') {
+                    $positionClass = 'toast-bottom-right';
+                } else {
+                    $positionClass = 'toast-' + $position;
+                }
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $positionClass
+                });
+            });
+        });
+    </script>
+}

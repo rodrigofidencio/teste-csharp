@@ -1,0 +1,67 @@
+﻿@model fundagMVC.Classes.Usuario
+
+<div class="panel-content">
+    <h3 class="heading">
+        <i class="fa fa-square"></i>
+        Solicitações em Aprovação
+    </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Código</th>
+                <th>Projeto</th>
+                <th>Nome</th>
+                <th class="text-center"> </th>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>         
+             @foreach (var solicitacao in Model.SolicitacoesPendente)
+                {
+                    <tr>
+                        <td> @solicitacao.TipoSolicitacaoDescricao</td>
+                        <td> @solicitacao.Codigo</td>
+                        <td>
+                            <a href="@Url.Action("ProjetoDetalhe", "Projeto", new { id= solicitacao.Codigo})">
+                                @solicitacao.ProjetoDescricao
+                            </a>
+                        </td>
+                        <td>@solicitacao.DescricaoSolicitante</td>
+                        <td class="text-center">
+                            <i class="lnr lnr-warning warning"></i>
+                        </td>
+                        <td>@solicitacao.Data</td>
+                        <td>R$ @solicitacao.ValorTotal</td>
+                        <td>
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Ação
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="@Url.Action("ReembolsoLancamento", "Reembolso", new { id= solicitacao.Codigo })">
+                                            <i class="lnr lnr-pencil"></i> Editar
+                                        </a>
+                                    </li>
+                                    <li>                                       
+                                        <a href="@Url.Action("ReembolsoLancamento", "Reembolso", new { id= solicitacao.Codigo })">
+                                            <i class="lnr lnr-eye"></i> Visualizar
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-toggle="modal" data-target="#modal-reprova">
+                                            <i class="lnr lnr-sun"></i> Reprovar
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }            
+        </tbody>
+    </table>
+</div>

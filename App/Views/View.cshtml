@@ -1,0 +1,93 @@
+﻿@model IEnumerable<fundagMVC.Classes.Solicitacao>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoSolicitacaoDescricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SolicitanteID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescricaoSolicitante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoedaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescricaoMoeda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SituacaoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SituacaoDescricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjetoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjetoDescricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorTotalBase)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoSolicitacaoDescricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SolicitanteID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescricaoSolicitante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoedaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescricaoMoeda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SituacaoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SituacaoDescricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjetoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjetoDescricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorTotalBase)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

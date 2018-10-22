@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Cadastro de Adiantamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="panel-content">
+        <h3 class="heading"><i class="fa fa-square"></i> Cadastro de Adiantamento</h3>
+        <div class="form-box">
+            @Html.Partial("_FormAdiantamento")
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.cpf').mask('999.999.999-99');
+
+            //EXIBE A MENSAGE DO TOASTR NA TELA
+            $('.mensage').on('click', function () {
+                $context = $(this).data('context');
+                $message = $(this).data('message');
+                $position = $(this).data('position');
+
+                if ($context === '') {
+                    $context = 'info';
+                }
+
+                if ($position === '') {
+                    $positionClass = 'toast-bottom-right';
+                } else {
+                    $positionClass = 'toast-' + $position;
+                }
+
+                toastr.remove();
+                toastr[$context]($message, '', {
+                    positionClass: $positionClass
+                });
+            });
+        });
+    </script>
+}

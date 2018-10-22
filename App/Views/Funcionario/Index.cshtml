@@ -1,0 +1,58 @@
+﻿<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title"><em></em> </h2>
+    </div>
+    <div class="row">       
+        <div class="panel-content">
+            <h3 class="heading"><i class="fa fa-square"></i> Lista de Funcionários</h3>
+            <div class="panel-content">
+                <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-funcionario">
+                    <i class="fa fa-plus-square"></i>Novo Funcionario
+                </button>
+            </div>
+            <div class="panel-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Login</th>
+                            <th>Cód. Integração</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Telefone</th>
+                            <th>Nível</th>
+                            <th>Ativo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0001</td>
+                            <td>Fundag</td>
+                            <td>00001</td>
+                            <td>Fundag</td>
+                            <td>Funda@fundag.com</td>
+                            <td>(99) 9999-9999</td>
+                            <td>--</td>
+                            <td>
+                               <icon class="lnr lnr-checkmark-circle"></icon>
+                           </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL -->
+<div id="modal-funcionario" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @Html.Partial("_CadastroFuncionario")
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL -->

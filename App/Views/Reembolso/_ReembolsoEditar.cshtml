@@ -1,0 +1,129 @@
+﻿@model fundagMVC.Classes.Usuario
+
+<div class="dashboard-section">
+    <div class="row">
+        <div class="panel-content">
+            <h3 class="heading">
+                <i class="fa fa-square"></i> Editar Reembolso
+            </h3>
+            <div class="form-box">
+                <form name="form" class="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2"><label>Código</label><input class="form-control" name="codigo" type="text" value=""></div>
+                                        <div class="col-sm-8">
+                                            <label>Projeto</label>
+                                            <div>
+                                                <select class="form-control">
+                                                    <option value="0">Selecione um projeto</option>
+                                                    <option value="Projeto A">Projeto A</option>
+                                                    <option value="Projeto B">Projeto B</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"><label>Titulo</label><input class="form-control" name="titulo" type="text" value=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="dashboard-section">
+                                <div class="section-heading clearfix">
+                                    <h2 class="section-title"><em></em> </h2>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <div class="panel-content">
+                                            <h3 class="heading"><i class="fa fa-square"></i> Dados Fornecedor</h3>
+                                            <div class="panel-content">
+                                                <div class="form-group">
+                                                    <label>Solicitante</label>
+                                                    <div>
+                                                        <select class="form-control">
+                                                            <option value="0">Selecione um solicitante</option>
+                                                            <option value="Solicitante A">Solicitante A</option>
+                                                            <option value="Solicitante B">Solicitante B</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label>CPF</label><input class="form-control" name="solicitanteCPF" type="text" value=""></div>
+                                                <div class="form-group"><label>Nome</label><input class="form-control" name="solicitanteNome" type="text" value=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="dashboard-section">
+                                <div class="section-heading clearfix">
+                                    <h2 class="section-title"><em></em> </h2>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <div class="panel-content">
+                                            <h3 class="heading"><i class="fa fa-square"></i> Dados Bancarios</h3>
+                                            <div class="panel-content">
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>Banco</label>
+                                                            <div>
+                                                                <select class="form-control">
+                                                                    <option value="0">Selecione um banco</option>
+                                                                    <option value="Banco A">Banco A</option>
+                                                                    <option value="Banco B">Banco B</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label>Agência</label>
+                                                            <div>
+                                                                <select class="form-control">
+                                                                    <option value="0">Selecione um coordenador</option>
+                                                                    <option value="Teste A">Teste A</option>
+                                                                    <option value="Teste B">Teste B</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-sm-9"><label>C.C.</label><input class="form-control" name="contaCorrente" type="text" value=""></div>
+                                                        <div class="col-md-3"><label>Digíto C.C.</label><input class="form-control" name="digitoConta" type="text" value=""></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-default">Cancelar</button>&nbsp;&nbsp;
+                                    <a class="btn btn-warning" href="#">Salvar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,149 @@
+﻿<ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#principal" role="tab" data-toggle="tab">Principal</a></li>
+    <li><a href="#pessoal" role="tab" data-toggle="tab">Pessoal</a></li>
+    <li><a href="#dependentes" role="tab" data-toggle="tab">Dependentes</a></li>
+    <li><a href="#bancarios" role="tab" data-toggle="tab">Bancarios</a></li>
+    <li><a href="#doc" role="tab" data-toggle="tab">Documentos Pessoas</a></li>
+</ul>
+<form>
+    <div class="tab-content content-profile">
+        <!-- PRINCIPAL -->
+        <div class="tab-pane fade in active" id="principal">
+            <div class="profile-section">
+                <h2 class="profile-heading">Foto Perfil</h2>
+                <div class="media">
+                    <div class="media-left">
+                        <img src="~/Imagens/user.png" class="user-photo media-object" alt="User">
+                    </div>
+                    <div class="media-body">
+                        <p>
+                            <em>Imagem deve ter as seguintes dimensões 140px x 140px</em>
+                        </p>
+                        <button type="button" class="btn btn-default-dark" id="btn-upload-photo">Upload</button>
+                        <input type="file" id="filePhoto" class="sr-only">
+                    </div>
+                </div>
+            </div>
+            <div class="profile-section">
+                <h2 class="profile-heading">Basic Information</h2>
+                <div class="clearfix">
+                    <!-- LEFT SECTION -->
+                    <div class="left">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div>
+                                <label class="fancy-radio">
+                                    <input name="gender2" value="male" type="radio" checked>
+                                    <span><i></i>Male</span>
+                                </label>
+                                <label class="fancy-radio">
+                                    <input name="gender2" value="female" type="radio">
+                                    <span><i></i>Female</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Birthdate</label>
+                            <div class="input-group date" data-date-autoclose="true" data-provide="datepicker">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Website</label>
+                            <input type="text" class="form-control" placeholder="http://">
+                        </div>
+                    </div>
+                    <!-- END LEFT SECTION -->
+                    <!-- RIGHT SECTION -->
+                    <div class="right">
+                        <div class="form-group">
+                            <label>Address Line 1</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Address Line 2</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>State/Province</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <select class="form-control">
+                                <option value="">-- Select Country --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- END RIGHT SECTION -->
+                </div>
+                <p class="margin-top-30">
+                    <button type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
+                    <button type="button" class="btn btn-default">Cancel</button>
+                </p>
+            </div>
+        </div>
+        <!-- FIM PRINCIPAL -->
+
+
+        <!-- PESSOAL -->
+        <div class="tab-pane fade" id="pessoal">
+            <div class="profile-section">
+                <div class="clearfix">
+
+                </div>
+                <p class="margin-top-30">
+                    <button type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
+                    <button class="btn btn-default">Cancel</button>
+                </p>
+            </div>
+        </div>
+        <!-- FIM PESSOAL -->
+
+
+        <!-- DEPENDENTES -->
+        <div class="tab-pane fade" id="dependentes">
+            <div class="clearfix">
+
+            </div>
+            <p class="margin-top-30">
+                <button type="button" class="btn btn-primary">Update</button> &nbsp;&nbsp;
+                <button class="btn btn-default">Cancel</button>
+            </p>
+        </div>
+        <!-- FIM DEPENDENTES -->
+
+
+        <!-- BANCARIO -->
+        <div class="tab-pane fade" id="bancarios">
+            <div class="clearfix">
+
+            </div>
+        </div>
+        <!-- FIM BANCARIO -->
+
+
+        <!-- DOCUMENTOS PESSOAIS -->
+        <div class="tab-pane fade" id="doc">
+            <div class="clearfix">
+
+            </div>
+        </div>
+        <!-- FIM DOCUMENTOS PESSOAIS -->
+
+
+    </div>
+</form>

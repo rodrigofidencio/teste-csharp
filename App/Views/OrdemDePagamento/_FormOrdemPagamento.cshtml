@@ -1,0 +1,121 @@
+﻿<div class="form-box">
+    <form name="form" class="">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-content">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label>Código</label>
+                                <input class="form-control" name="codigo" type="text" value="" tabindex="1">
+                            </div>
+                            <div class="col-sm-8">
+                                <label>Projeto</label>
+                                @Html.DropDownList("Id", new SelectList(ViewBag.Projetos, "ProjetoID", "Descricao"),
+                               "Selecione um Projeto", new { @class = "form-control", @id = "ProjetoOrdemPagamento" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Titulo</label>
+                                <input class="form-control" name="titulo" type="text" value="" tabindex="3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="dashboard-section">
+                    <div class="section-heading clearfix">
+                        <h2 class="section-title"><em></em> </h2>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <div class="panel-content">
+                                <h3 class="heading"><i class="fa fa-square"></i> Dados Favorecido</h3>
+                                <div class="panel-content">
+                                    <div class="form-group">
+                                        <label>Solicitante</label>
+                                        <div>
+                                            @Html.DropDownList("ColaboradorID", new SelectList(ViewBag.Solicitate, "ColaboradorID", "Nome"),
+                                "Selecione um Solicitante", new { @class= "form-control CarregarBanco", @id= "SolicitanteOrdemPagamento" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CPF</label>
+                                        <input class="form-control cpf" name="solicitanteCPF" type="text" value="" tabindex="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nome</label>
+                                        <input class="form-control" name="solicitanteNome" type="text" value="" tabindex="6">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="dashboard-section">
+                    <div class="section-heading clearfix">
+                        <h2 class="section-title"><em></em> </h2>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <div class="panel-content">
+                                <h3 class="heading"><i class="fa fa-square"></i> Dados Bancários</h3>
+                                <div class="panel-content">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <label>Banco</label>
+                                                    @Html.DropDownList("Id", new SelectList(ViewBag.Banco, "Id", "Descricao"),
+                                                    "Selecione um Banco", new { @class="form-control" , @id= "BancoFavorecido" })
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label>Agência</label>
+                                                <div>
+                                                    <input class="form-control" name="agencia" type="text" value="" tabindex="8">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-9">
+                                                <label>C.C.</label>
+                                                <input class="form-control" name="contaCorrente" type="text" value="" tabindex="9">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>Digíto C.C.</label>
+                                                <input class="form-control" name="digitoConta" type="text" value="" tabindex="10">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel-content">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default">Cancelar</button>&nbsp;&nbsp;
+                        <a href="@Url.Action("OrdemLancamento", "OrdemDePagamento")" class="btn btn-primary">
+                            <i class="lnr lnr-arrow-right-circle"></i> Continuar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

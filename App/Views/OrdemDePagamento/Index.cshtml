@@ -1,0 +1,97 @@
+﻿@using X.PagedList.Mvc;
+@model X.PagedList.PagedList<fundagMVC.Classes.Solicitacao>
+
+@{
+    ViewBag.Title = "Ordem de Pagamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title">
+            <em></em>
+        </h2>
+    </div>
+
+    @Html.Partial("~/Views/Shared/_GridSolicitacoes.cshtml", Model)
+
+    <!-- MODAL -->
+    <div id="modal-adiantamento" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="panel-content">
+                        <h3 class="heading">
+                            <i class="fa fa-square"></i>
+                            <span id="titulo-modal"></span>
+                        </h3>
+                        <div class="form-box">
+                            @*@Html.Partial("_FormAdiantamento")*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-reprova" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="panel-content">
+                        <div class="form-box">
+                            @*@Html.Partial("_MotivoReprova")*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL -->
+
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+
+                //EXIBE A MENSAGE DO TOASTR NA TELA
+                $('.mensage').on('click', function () {
+                    $context = $(this).data('context');
+                    $message = $(this).data('message');
+                    $position = $(this).data('position');
+
+                    if ($context === '') {
+                        $context = 'info';
+                    }
+
+                    if ($position === '') {
+                        $positionClass = 'toast-bottom-right';
+                    } else {
+                        $positionClass = 'toast-' + $position;
+                    }
+
+                    toastr.remove();
+                    toastr[$context]($message, '', {
+                        positionClass: $positionClass
+                    });
+                });
+
+                $('.visualizar').on('click', function () {
+                    $('#titulo-modal').text('Visualizar Adiantamento')
+                    $('input').prop('readonly', true);
+                    $('select').prop('disabled', true);
+                    $('textarea').prop('readonly', true);
+                    $('.btn-status').hide()
+                });
+
+                $('.editar').on('click', function () {
+                    $('#titulo-modal').text('Editar Adiantamento')
+                    $('input').prop('readonly', false);
+                    $('select').prop('disabled', false);
+                    $('textarea').prop('readonly', false);
+                    $('.btn-success').hide()
+                });
+            });
+        </script>
+    }
+
+</div>

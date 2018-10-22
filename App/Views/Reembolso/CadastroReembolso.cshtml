@@ -1,0 +1,220 @@
+﻿@model fundagMVC.Classes.UsuarioReembolso
+
+@{
+    ViewBag.Title = "Cadastro Reembolso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard-section">
+    <div class="section-heading clearfix">
+        <h2 class="section-title"><em></em> </h2>
+    </div>
+    <div class="row">
+        @Html.Partial("_GridAdiantamentoSeleciona", Model)
+
+        <div class="panel-content" id="cadastroReembolso">
+            <h3 class="heading"><i class="fa fa-square"></i> Cadastro de Reembolso</h3>
+            <div class="form-box">
+                <form name="form" class="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label>Código</label>
+                                            <input class="form-control" name="codigo" type="text" id="CodigoReembolso" tabindex="1">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <label>Projeto</label>
+                                            @Html.DropDownList("Id", new SelectList(ViewBag.Projetos, "ProjetoID", "Descricao"),
+                                           "Selecione um Projeto", new { @class = "form-control", @id = "ProjetoReembolso" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Titulo</label>
+                                            <input class="form-control" id="TituloReembolso" name="titulo" type="text" tabindex="3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="dashboard-section">
+                                <div class="section-heading clearfix">
+                                    <h2 class="section-title"><em></em> </h2>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <div class="panel-content">
+                                            <h3 class="heading"><i class="fa fa-square"></i> Dados Favorecido</h3>
+                                            <div class="panel-content">
+                                                <div class="form-group">
+                                                    <label>Solicitante</label>
+                                                    @Html.DropDownList("ColaboradorID", new SelectList(ViewBag.Solicitate, "ColaboradorID", "Nome"),
+                                                      "Selecione um Solicitante", new { @class= "form-control CarregarBanco", @id= "SolicitanteReembolso" })
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>CPF</label>
+                                                    <input class="form-control cpf" id="CpfFavorecido" name="solicitanteCPF" type="text" tabindex="5">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Nome</label>
+                                                    <input class="form-control" id="NomeFavorecido" name="solicitanteNome" type="text" tabindex="6">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="dashboard-section">
+                                <div class="section-heading clearfix">
+                                    <h2 class="section-title"><em></em> </h2>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <div class="panel-content">
+                                            <h3 class="heading"><i class="fa fa-square"></i> Dados Bancarios</h3>
+                                            <div class="panel-content">
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <label>Banco</label>
+                                                            @Html.DropDownList("Id", new SelectList(ViewBag.Banco, "Id", "Descricao"),
+                                                               "Selecione um Banco", new { @class="form-control" , @id= "BancoFavorecido" })
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <label>Agência</label>
+                                                            <input class="form-control" id="AgenciaFavorecido" name="AgenciaFavorecido" type="text" tabindex="8">                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-sm-9">
+                                                            <label>C.C.</label>
+                                                            <input class="form-control" id="ContaFavorecido" name="contaCorrente" type="text" tabindex="9">
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label>Digíto C.C.</label>
+                                                            <input class="form-control" id="DigitoFavorecido" name="digitoConta" type="text" tabindex="10">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel-content">
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-default">Cancelar</button>&nbsp;&nbsp;
+                                    <a href="#" class="btn btn-primary btn-cadReembolso">
+                                        <i class="lnr lnr-arrow-right-circle"></i> Continuar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.cpf').mask('999.999.999-99');
+
+            $('#cadastroReembolso').hide();
+
+            $('.btnContinuar').on('click', function () {
+                $('#cadastroReembolso').show();
+                $('#SelecionaAdiantamento').hide();
+            });
+
+            $(".btn-cadReembolso").on('click', function () {
+
+                var reembolso = $("#checkReembolso")
+                var Adiantamentos = [];
+
+                for (var i = 0; i < reembolso.length; i++) {
+                    if (reembolso[i].checked) {
+                        Adiantamentos.push(reembolso[i].value)
+                    }
+                }
+
+                var Favorecido = [{
+                    Id: $("#SolicitanteReembolso").val(),
+                    CPF: $("#CpfFavorecido").val(),
+                    Nome: $("#NomeFavorecido").val(),
+                    Banco: $("#BancoFavorecido").val(),
+                    Agencia: $("#AgenciaFavorecido").val(),
+                    ContaCorrente: $("#ContaFavorecido").val(),
+                    Digito: $("#DigitoFavorecido").val(),
+                }]
+
+                var reembolso = [{
+                    SolicitanteID: 1,
+                    Titulo: $("#TituloReembolso").val(),
+                    ProjetoID: $("#ProjetoReembolso").val(),
+                    Adiantamentos: Adiantamentos,
+                    Favorecido: Favorecido,
+                }]
+
+                //console.log(reembolso)
+
+                $.ajax({
+                    url: '/Reembolso/CadastrarReembolso',
+                    type: 'POST',
+                    data: "{reembolso:" + JSON.stringify(reembolso) + "}",
+                    contentType: 'application/json',
+                    success: function (data) {
+                        window.location.href = data;             
+                    },
+                    error: function (result) {
+                        console.log(result)
+                    }
+                });
+            });
+
+            $('.CarregarBanco').change(function () {
+                var Colaborador = $(this).val();
+                $.ajax({
+                    url: '/Reembolso/CarregarInfoSolicitante',
+                    type: 'POST',
+                    data: JSON.stringify({ ColaboradorID: Colaborador }),
+                    dataType: 'JSON',
+                    contentType: 'application/json',
+                    success: function (response) {
+                        var obj = response;                      
+                        $("#CpfFavorecido").val(obj.CPF);
+                        $("#NomeFavorecido").val(obj.Nome);
+                        $("#BancoFavorecido").val(obj.ColaboradorBanco.BancoID);
+                        $("#AgenciaFavorecido").val(obj.ColaboradorBanco.BancoAgencia);
+                        $("#ContaFavorecido").val(obj.ColaboradorBanco.BancoContaCorrente);
+                        $("#DigitoFavorecido").val(obj.ColaboradorBanco.BancoContaCorrenteDigito);
+
+                    },
+                    error: function (result) {
+                        console.log(result)
+                    }
+                });
+            })
+        });
+    </script>
+}
+

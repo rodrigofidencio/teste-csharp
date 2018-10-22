@@ -1,0 +1,119 @@
+﻿@model fundagMVC.Classes.Usuario
+
+<div class="panel-content">
+    <h3 class="heading">
+        <i class="fa fa-square"></i>
+        Saldo x Orçamento
+    </h3>
+    <div class="row">
+        <div class="row">
+            <div class="panel-content">
+                <div class="col-md-3">
+                    @Html.DropDownListFor(m => m.Projetos,
+                          new SelectList(Model.Projetos.Select(x => x.Descricao)),
+                          " -- Selecione um Projeto --", new { @class= "form-control" })
+
+                </div>
+                <div class="col-md-3">
+                    <select class="form-control">
+                        <option>Selecione um Período</option>
+                        <option>Mensal</option>
+                        <option>Bimestral</option>
+                        <option>Semestral</option>
+                        <option>Anual</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel-content">
+                <div class="col-lg-offset-8">
+                    <ul class="ct-legend">
+                        <li class="ct-series-0" data-legend="0">Realizado</li>
+                        <li class="ct-series-1" data-legend="1">Orçado</li>
+                    </ul>
+                </div>
+                <div class="col-lg-offset-2">
+
+                    <div id="chart-sales-performance">Loading ...</div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="panel-content">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Jan</th>
+                                <th>Fev</th>
+                                <th>Mar</th>
+                                <th>Abr</th>
+                                <th>Mai</th>
+                                <th>Jun</th>
+                                <th>Jul</th>
+                                <th>Ago</th>
+                                <th>Set</th>
+                                <th>Out</th>
+                                <th>Nov</th>
+                                <th>Dez</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Realizado</th>
+                                <td>R$ 142,00</td>
+                                <td>R$ 298,00</td>
+                                <td>R$ 384,00</td>
+                                <td>R$ 232,00</td>
+                                <td>R$ 269,00</td>
+                                <td>R$ 211,00</td>
+                                <td>R$ 211,00</td>
+                                <td>R$ 250,00</td>
+                                <td>R$ 260,00</td>
+                                <td>R$ 280,00</td>
+                                <td>R$ 211,00</td>
+                                <td>R$ 200,00</td>
+                            </tr>
+                            <tr>
+                                <th>Orçado</th>
+                                <td>R$ 352,00</td>
+                                <td>R$ 373,00</td>
+                                <td>R$ 222,00</td>
+                                <td>R$ 533,00</td>
+                                <td>R$ 111,00</td>
+                                <td>R$ 60,00</td>
+                                <td>R$ 211,00</td>
+                                <td>R$ 211,00</td>
+                                <td>R$ 220,00</td>
+                                <td>R$ 231,00</td>
+                                <td>R$ 211,00</td>
+                                <td>R$ 211,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel-content">
+                <div class="col-md-3">
+                    <div class="col-m-3">
+                        <a class="btn btn-default" href="@Url.Action("Index","Extrato")">
+                            <i class="fa fa-file-text-o"></i>Visualizar detalhes do projeto
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input class="form-control  disabled" name="saldoFinal" type="text" value="Saldo R$ -487,00">
+                </div>
+            </div>
+        </div>
+    </div>
+
+

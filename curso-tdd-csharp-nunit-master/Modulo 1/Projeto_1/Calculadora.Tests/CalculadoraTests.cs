@@ -7,19 +7,19 @@ namespace Calculadora.Tests
     public class CalculadoraSimplesTests
     {
         [Test]
-        public void DeveAdicionarDoisNumeros()
+        public void Somadoisnumeros()
         {
             //SUT
             var sut = new CalculadoraSimples();
 
-            var resultado = sut.Adicionar(5, 5);
+            var resultado = sut.Somar(5, 5);
 
             Assert.That(resultado, Is.EqualTo(15));
         }
 
         /* Teste Classe Multiplicar 2 Números */
         [Test]
-        public void DeveMultiplicarDoisNumeros()
+        public void Multiplicardoisnumeros()
         {
             //SUT
             var sut = new CalculadoraSimples();
@@ -31,7 +31,7 @@ namespace Calculadora.Tests
 
         /* Teste Classe Dividir 2 Números */
         [Test]
-        public void DeveDividirDoisNumeros()
+        public void Dividirdoisnumeros()
         {
             //SUT
             var sut = new CalculadoraSimples();
@@ -41,14 +41,14 @@ namespace Calculadora.Tests
             Assert.That(resultado, Is.EqualTo(5));
         }
 
-        /* Teste Classe Diminuir 2 Números */
+        /* Teste Classe Subitrair 2 Números */
         [Test]
-        public void DeveDiminuirDoisNumeros()
+        public void Subtrairdoisnumeros()
         {
             //SUT
             var sut = new CalculadoraSimples();
 
-            var resultado = sut.Diminuir(5, 5);
+            var resultado = sut.Subtrair(5, 5);
 
             Assert.That(resultado, Is.EqualTo(25));
         }

@@ -2,9 +2,9 @@
 {
     public class CalculadoraSimples
     {
-        /* Método para Adicionar 2 números */
+        /* Método para Somar 2 números */
 
-        public int Adicionar(int num1, int num2)
+        public int Somar(int num1, int num2)
         {
             return num1 + num2;
         }
@@ -23,10 +23,16 @@
             return num1/num2;
         }
 
-        /* Método para Diminuir 2 números */
-        public int Diminuir(int num1, int num2)
+        /* Método para Subtrair 2 números */
+        public int Subtrair(int num1, int num2)
         {
             return num1 - num2;
         }
+
+		/* Método para Porcentagem 2 números */
+		public int Porcentagem(int num1,int num2)
+		{
+			return num1 % num2;
+		}
     }
 }
